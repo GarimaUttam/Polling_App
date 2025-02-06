@@ -28,11 +28,11 @@ public class Poll {
     @CollectionTable(name = "poll_options", joinColumns = @JoinColumn(name = "poll_id"))
     @Column(name = "option_value")
     @JsonProperty("options")  // Maps correctly to JSON
-    private List<String> options = new ArrayList<>();
+    private List<OptionVote> options = new ArrayList<>();
 
-    @ElementCollection
-    @CollectionTable(name = "poll_votes", joinColumns = @JoinColumn(name = "poll_id"))
-    @Column(name = "vote_count")
-    @JsonProperty("votes")  // Maps correctly to JSON
-    private List<Long> votes = new ArrayList<>();
+//    @ElementCollection
+//    @CollectionTable(name = "poll_votes", joinColumns = @JoinColumn(name = "poll_id"))
+//    @Column(name = "vote_count")
+//    @JsonProperty("votes")  // Maps correctly to JSON
+//    private List<Long> votes = new ArrayList<>();
 }
