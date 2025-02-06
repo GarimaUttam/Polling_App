@@ -10,29 +10,50 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
+//@Entity
+//@Data
+//@NoArgsConstructor
+////@JsonIgnoreProperties(ignoreUnknown = true)  // Ignores unknown fields
+//@JsonInclude(JsonInclude.Include.NON_NULL)   // Ensures null values are included in response
+//public class Poll {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @JsonProperty("id")  // Ensure ID is included in the JSON response
+//    private Long id;
+//
+//    @JsonProperty("question")  // Ensure question is included in the JSON response
+//    private String question;
+//
+//    @ElementCollection
+//    @CollectionTable(name = "poll_options", joinColumns = @JoinColumn(name = "poll_id"))
+//    @Column(name = "option_value")
+//    @JsonProperty("options")  // Maps correctly to JSON
+//    private List<OptionVote> options = new ArrayList<>();
+//
+////    @ElementCollection
+////    @CollectionTable(name = "poll_votes", joinColumns = @JoinColumn(name = "poll_id"))
+////    @Column(name = "vote_count")
+////    @JsonProperty("votes")  // Maps correctly to JSON
+////    private List<Long> votes = new ArrayList<>();
+//}
+
+
 @Entity
 @Data
 @NoArgsConstructor
-//@JsonIgnoreProperties(ignoreUnknown = true)  // Ignores unknown fields
-@JsonInclude(JsonInclude.Include.NON_NULL)   // Ensures null values are included in response
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Poll {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("id")  // Ensure ID is included in the JSON response
+    @JsonProperty("id")
     private Long id;
 
-    @JsonProperty("question")  // Ensure question is included in the JSON response
+    @JsonProperty("question")
     private String question;
 
     @ElementCollection
     @CollectionTable(name = "poll_options", joinColumns = @JoinColumn(name = "poll_id"))
     @Column(name = "option_value")
-    @JsonProperty("options")  // Maps correctly to JSON
+    @JsonProperty("options")
     private List<OptionVote> options = new ArrayList<>();
-
-//    @ElementCollection
-//    @CollectionTable(name = "poll_votes", joinColumns = @JoinColumn(name = "poll_id"))
-//    @Column(name = "vote_count")
-//    @JsonProperty("votes")  // Maps correctly to JSON
-//    private List<Long> votes = new ArrayList<>();
 }
