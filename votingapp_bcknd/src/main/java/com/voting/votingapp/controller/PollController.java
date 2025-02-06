@@ -27,4 +27,10 @@ public class PollController {
     public List<Poll> getAllPolls(){
         return pollService.getAllPolls();
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Poll> getPoll(@PathVariable Long id) {
+        return pollService.getPollById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 }
