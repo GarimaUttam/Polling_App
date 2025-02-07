@@ -4,31 +4,28 @@ package com.voting.votingapp.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Embeddable;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
 @NoArgsConstructor
 @Embeddable
 public class OptionVote {
-    @JsonProperty("voteOption")
-    private String voteOption;
+    @JsonProperty("optionText")
+    private String optionText;
+
 
     @JsonProperty("voteCount")
     private Long voteCount = 0L;
 
 
-
-
-
-
-
-
-    public String getVoteOption() {
-        return voteOption;
+    public String getOptionText() {
+        return optionText;
     }
 
-    public void setVoteOption(String voteOption) {
-        this.voteOption = voteOption;
+    public void setOptionText(String optionText) {
+        this.optionText = optionText;
     }
 
     public Long getVoteCount() {
