@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PollService } from '../poll.service';
 import { Poll } from '../poll.models';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 // import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 
 @Component({
   selector: 'app-poll',
-  imports: [NgFor, FormsModule],
+  imports: [NgFor, FormsModule, NgIf],
   templateUrl: './poll.component.html',
   styleUrl: './poll.component.css'
 })
@@ -40,6 +40,10 @@ export class PollComponent implements OnInit{
         console.error("Error fetching polls: ", error);
       }
     });
+  }
+
+  addOption() {
+    this.newPoll.options.push({ optionText: '', voteCount: 0})
   }
 
   createPoll() {
