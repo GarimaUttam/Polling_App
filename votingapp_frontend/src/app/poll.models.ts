@@ -4,7 +4,7 @@ export interface OptionVote {
     voteCount: number;
 }
 export interface Poll {
-    id: number;
+    id?: number;
     question: string;
     options: OptionVote[];
 }

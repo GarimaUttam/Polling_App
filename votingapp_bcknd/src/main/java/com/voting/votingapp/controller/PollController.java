@@ -25,6 +25,19 @@ public class PollController {
         return ResponseEntity.ok(createdPoll); // Ensures correct JSON response
     }
 
+//    @PostMapping
+//    public ResponseEntity<Poll> createPoll(@RequestBody Poll poll) {
+//        if (poll.getQuestion() == null || poll.getQuestion().isEmpty()) {
+//            throw new IllegalArgumentException("Question cannot be empty");
+//        }
+//        if (poll.getOptions() == null || poll.getOptions().isEmpty()) {
+//            throw new IllegalArgumentException("Options cannot be empty");
+//        }
+//        Poll createdPoll = pollService.createPoll(poll);
+//        return ResponseEntity.ok(createdPoll);
+//    }
+
+
     @GetMapping
     public List<Poll> getAllPolls(){
         return pollService.getAllPolls();
